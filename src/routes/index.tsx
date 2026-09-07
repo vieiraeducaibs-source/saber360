@@ -80,136 +80,151 @@ function RelatorioAluno() {
   };
 
   return (
-    <div className="w-full min-h-screen py-8 print:py-0 print:bg-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <div className="w-full min-h-screen py-10 print:py-0 print:bg-white bg-slate-50/50">
+      <div className="max-w-5xl mx-auto px-6">
         
         {/* Ações / Cabeçalho da Página (Oculto na impressão) */}
-        <div className="flex flex-col sm:flex-row justify-between items-center mb-8 print:hidden bg-slate-900 text-white p-6 rounded-xl shadow-lg">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-slate-800 rounded-lg">
-              <FileText className="w-6 h-6 text-blue-400" />
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-10 print:hidden bg-white/80 backdrop-blur-xl p-6 rounded-3xl shadow-sm border border-slate-200/60">
+          <div className="flex items-center gap-4">
+            <div className="p-3.5 bg-blue-600/10 rounded-2xl">
+              <FileText className="w-6 h-6 text-blue-600" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold">Relatório de Desempenho</h1>
-              <p className="text-slate-400">Visualize ou exporte o gabarito completo</p>
+              <h1 className="text-2xl font-bold text-slate-800">Relatório Acadêmico</h1>
+              <p className="text-sm text-slate-500 font-medium">Visualização e exportação do boletim</p>
             </div>
           </div>
           <button 
             onClick={handlePrint}
-            className="mt-4 sm:mt-0 flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg font-medium transition-colors shadow-sm focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900"
+            className="mt-4 sm:mt-0 flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-2xl font-semibold transition-all shadow-md hover:shadow-xl active:scale-95"
           >
             <Printer className="w-5 h-5" />
-            Exportar PDF / Imprimir
+            Exportar / Imprimir
           </button>
         </div>
 
         {/* Início Relatório Oficial para Impressão */}
-        <div className="bg-white print:shadow-none shadow-sm rounded-xl print:rounded-none overflow-hidden border border-slate-200 print:border-none">
+        <div className="bg-white print:shadow-none shadow-xl shadow-slate-200/40 rounded-3xl print:rounded-none overflow-hidden border border-slate-100 print:border-none">
           {/* Cabeçalho do Relatório */}
-          <div className="p-8 border-b border-slate-200 bg-slate-50 print:bg-transparent print:px-0">
-            <div className="flex justify-between items-end mb-6">
+          <div className="p-10 border-b border-slate-100 print:bg-transparent print:px-0 relative overflow-hidden">
+            {/* Elemento decorativo sutil (visível apenas na tela) */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-30 -mr-20 -mt-20 print:hidden"></div>
+
+            <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
               <div>
-                <h1 className="text-3xl font-extrabold text-slate-800 tracking-tight">
-                  Histórico Acadêmico
-                </h1>
-                <p className="text-slate-500 mt-1 uppercase text-sm tracking-wider font-semibold">
+                <p className="text-blue-600 font-bold tracking-widest text-xs uppercase mb-2">
                   Boletim Analítico de Provas
                 </p>
+                <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight">
+                  Histórico do Aluno
+                </h1>
               </div>
-              <div className="text-right text-sm text-slate-500">
-                <p>Emitido em:</p>
-                <p className="font-semibold text-slate-800">{MOCK_REPORT.dateGenerated}</p>
+              <div className="text-left md:text-right text-sm">
+                <span className="inline-flex items-center text-slate-500 font-medium bg-slate-50 print:bg-transparent px-4 py-2 print:px-0 print:py-0 rounded-full border border-slate-200 print:border-none">
+                  Emitido em: <span className="text-slate-800 font-bold ml-2">{MOCK_REPORT.dateGenerated}</span>
+                </span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 bg-white print:bg-white p-6 rounded-lg border border-slate-100 shadow-sm">
-              <div>
-                <p className="text-sm text-slate-500">Nome do Aluno</p>
-                <p className="text-lg font-bold text-slate-900">{MOCK_REPORT.studentName}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8 relative z-10">
+              <div className="bg-slate-50/70 print:bg-transparent p-5 rounded-2xl border border-slate-100 print:border-none print:p-0">
+                <p className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Nome do Aluno</p>
+                <p className="text-base font-bold text-slate-800 leading-tight">{MOCK_REPORT.studentName}</p>
               </div>
-              <div>
-                <p className="text-sm text-slate-500">Matrícula</p>
-                <p className="text-lg font-semibold text-slate-700">{MOCK_REPORT.enrollment}</p>
+              <div className="bg-slate-50/70 print:bg-transparent p-5 rounded-2xl border border-slate-100 print:border-none print:p-0">
+                <p className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Matrícula</p>
+                <p className="text-base font-bold text-slate-800">{MOCK_REPORT.enrollment}</p>
               </div>
-              <div>
-                <p className="text-sm text-slate-500">Turma / Curso</p>
-                <p className="text-lg font-semibold text-slate-700">{MOCK_REPORT.course}</p>
+              <div className="bg-slate-50/70 print:bg-transparent p-5 rounded-2xl border border-slate-100 print:border-none print:p-0">
+                <p className="text-xs text-slate-400 uppercase font-bold tracking-wider mb-1">Turma / Curso</p>
+                <p className="text-base font-bold text-slate-800 leading-tight">{MOCK_REPORT.course}</p>
               </div>
-              <div>
-                <p className="text-sm text-slate-500">Rendimento Global</p>
-                <p className="text-lg font-bold text-blue-600">{MOCK_REPORT.overallScore}</p>
+              <div className="bg-blue-50/50 print:bg-transparent p-5 rounded-2xl border border-blue-100 print:border-none print:p-0">
+                <p className="text-xs text-blue-500 uppercase font-bold tracking-wider mb-1 print:text-slate-500">Rendimento Global</p>
+                <p className="text-2xl font-black text-blue-700 print:text-slate-800 mt-1">{MOCK_REPORT.overallScore}</p>
               </div>
             </div>
           </div>
 
           {/* Lista de Provas */}
-          <div className="p-8 print:p-0 print:mt-6">
+          <div className="p-6 md:p-10 print:p-0 print:mt-8 bg-slate-50/30 print:bg-white">
             {MOCK_REPORT.exams.map((exam, index) => (
               <div 
                 key={exam.id} 
-                className={`break-inside-avoid print:break-inside-avoid mb-12 ${index > 0 ? 'print:break-before-page' : ''}`}
+                className={`break-inside-avoid print:break-inside-avoid mb-10 bg-white rounded-3xl border border-slate-100 print:border-slate-300 shadow-sm overflow-hidden ${index > 0 ? 'print:break-before-page' : ''}`}
               >
                 {/* Cabeçalho da Prova */}
-                <div className="flex justify-between items-center bg-slate-800 text-white p-4 rounded-t-lg print:bg-slate-100 print:text-slate-900 print:border print:border-slate-300">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white border-b border-slate-100 print:border-slate-300 p-6 sm:p-8 gap-4">
                   <div>
-                    <h2 className="text-xl font-bold">{exam.title}</h2>
-                    <p className="text-slate-300 print:text-slate-600 text-sm mt-1">Aplicada em: {exam.date}</p>
+                    <h2 className="text-xl font-bold text-slate-800">{exam.title}</h2>
+                    <p className="text-slate-400 print:text-slate-500 text-sm mt-1.5 font-medium flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-slate-300 print:bg-slate-400"></span>
+                      Realizada em {exam.date}
+                    </p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm text-slate-300 print:text-slate-600">Nota Final</p>
-                    <p className="text-2xl font-bold">
-                      {exam.score} <span className="text-base font-normal text-slate-400 print:text-slate-500">/ {exam.maxScore}</span>
+                  <div className="flex items-center gap-4 bg-slate-50 print:bg-transparent px-5 py-3 rounded-2xl border border-slate-100 print:border-none print:px-0 print:py-0 w-full sm:w-auto">
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-wide">Nota Final</p>
+                    <p className="text-2xl font-black text-slate-800">
+                      {exam.score} <span className="text-base font-bold text-slate-300 print:text-slate-400">/ {exam.maxScore}</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Questões da Prova */}
-                <div className="border-x border-b border-slate-200 rounded-b-lg print:border-slate-300 p-6 space-y-8">
+                <div className="p-6 sm:p-8 space-y-10 bg-slate-50/10 print:bg-white">
                   {exam.questions.map((q) => {
                     const isQuestionCorrect = q.userAnswer === q.correctAnswer;
 
                     return (
-                      <div key={q.id} className="break-inside-avoid">
-                        <div className="flex items-start gap-3 mb-4">
-                          <div className="mt-1">
+                      <div key={q.id} className="break-inside-avoid relative">
+                        <div className="flex items-start gap-4 mb-5">
+                          <div className={`mt-0.5 p-1 rounded-full shrink-0 ${isQuestionCorrect ? 'bg-green-100 print:bg-transparent' : 'bg-red-100 print:bg-transparent'}`}>
                             {isQuestionCorrect ? (
-                              <CheckCircle2 className="w-6 h-6 text-green-500 print:text-green-600" />
+                              <CheckCircle2 className="w-6 h-6 text-green-600 print:text-green-700" strokeWidth={2.5} />
                             ) : (
-                              <XCircle className="w-6 h-6 text-red-500 print:text-red-600" />
+                              <XCircle className="w-6 h-6 text-red-500 print:text-red-700" strokeWidth={2.5} />
                             )}
                           </div>
-                          <h3 className="text-lg font-medium text-slate-900 leading-snug">
+                          <h3 className="text-lg font-semibold text-slate-800 leading-relaxed">
                             {q.text}
                           </h3>
                         </div>
                         
-                        <div className="grid gap-2 ml-9">
+                        <div className="grid gap-3 ml-12">
                           {q.options.map((option, optIdx) => {
                             const isUserChoice = option === q.userAnswer;
                             const isCorrect = option === q.correctAnswer;
                             
-                            // Lógica de estilização das alternativas
-                            let baseClasses = "p-3 rounded-md border text-sm font-medium transition-colors ";
+                            let baseClasses = "flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl border-2 transition-all font-medium text-sm gap-2 ";
                             
                             if (isUserChoice && isCorrect) {
-                              baseClasses += "bg-green-100 border-green-400 text-green-900 print:bg-green-50 print:border-green-500";
+                              baseClasses += "bg-green-50/50 border-green-500 text-green-900 print:border-green-600 print:bg-green-50";
                             } else if (isUserChoice && !isCorrect) {
-                              baseClasses += "bg-red-100 border-red-300 text-red-900 line-through decoration-red-400 print:bg-white print:border-red-400";
+                              baseClasses += "bg-red-50/50 border-red-300 text-red-900 print:border-red-400 print:bg-red-50";
                             } else if (!isUserChoice && isCorrect) {
-                              baseClasses += "bg-emerald-50 border-emerald-200 text-emerald-800 print:bg-white print:border-emerald-400";
+                              baseClasses += "bg-emerald-50/20 border-emerald-400 border-dashed text-emerald-800 print:border-emerald-500 print:bg-transparent";
                             } else {
-                              baseClasses += "bg-white border-slate-200 text-slate-600";
+                              baseClasses += "bg-white border-slate-100 text-slate-600 hover:border-slate-200 print:border-slate-200";
                             }
 
                             return (
-                              <div key={optIdx} className={`flex items-center justify-between ${baseClasses}`}>
-                                <span>{option}</span>
-                                {
-                                  isUserChoice && !isCorrect && <span className="text-xs font-bold text-red-600 uppercase tracking-wider ml-4">Resposta do Aluno</span>
-                                }
-                                {
-                                  isCorrect && <span className="text-xs font-bold text-green-700 uppercase tracking-wider ml-4">Gabarito Correto</span>
-                                }
+                              <div key={optIdx} className={baseClasses}>
+                                <span className={isUserChoice && !isCorrect ? "line-through decoration-red-400 decoration-2 opacity-80" : ""}>
+                                  {option}
+                                </span>
+                                
+                                <div className="flex gap-2 self-start sm:self-auto">
+                                  {isUserChoice && !isCorrect && (
+                                    <span className="bg-red-100 text-red-700 print:bg-white print:border print:border-red-300 px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">
+                                      Sua resposta
+                                    </span>
+                                  )}
+                                  {isCorrect && (
+                                    <span className="bg-green-100 text-green-700 print:bg-white print:border print:border-green-300 px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wider">
+                                      Correta
+                                    </span>
+                                  )}
+                                </div>
                               </div>
                             );
                           })}
@@ -223,9 +238,9 @@ function RelatorioAluno() {
           </div>
           
           {/* Rodapé da Impressão */}
-          <div className="hidden print:block text-center text-sm text-slate-500 mt-12 pt-4 border-t border-slate-200">
-            <p>Este é um documento oficial emitido em {MOCK_REPORT.dateGenerated}.</p>
-            <p>Sistema de Gestão Educacional - Relatório de Conferência de Provas</p>
+          <div className="hidden print:block text-center text-sm text-slate-500 mt-8 mb-4 pt-6 border-t border-slate-200 opacity-80">
+            <p className="font-medium">Este documento é um boletim oficial gerado eletronicamente em {MOCK_REPORT.dateGenerated}.</p>
+            <p>Plataforma de Gestão Educacional — Conferência Detalhada de Provas</p>
           </div>
 
         </div>
