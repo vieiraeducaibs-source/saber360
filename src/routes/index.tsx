@@ -80,15 +80,19 @@ function Inicio() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div 
-              className="bg-[#FCFAF6] p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#EAE6DF]/50 hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-up cursor-default"
+            <Link 
+              to="/banco-questoes"
+              className="block bg-[#FCFAF6] p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#EAE6DF]/50 hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-up cursor-pointer group"
               style={{ animationDelay: '150ms' }}
             >
-              <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight">Banco de questões</h3>
+              <div className="flex items-center justify-between mb-3 text-slate-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-lg font-bold tracking-tight">Banco de questões</h3>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </div>
               <p className="text-slate-600 text-[15px] leading-relaxed">
-                Organize questões por disciplina, série, tema, habilidade, competência e dificuldade. Pesquise, duplique e reaproveite.
+                Acesse o acervo dinâmico com mais de 400 questões cadastradas. Filtre por disciplina, explore e visualize os gabaritos.
               </p>
-            </div>
+            </Link>
 
             {/* Card 2 */}
             <div 
