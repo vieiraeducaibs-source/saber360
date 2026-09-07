@@ -78,48 +78,37 @@ function Inicio() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Vitrine 1 */}
-            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all group">
-              <div className="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                <FileText className="w-7 h-7 group-hover:scale-110 transition-transform" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Relatórios Detalhados</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Gere boletins prontos para impressão com análise de desempenho por questão e estatísticas completas.
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div 
+              className="bg-[#FCFAF6] p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#EAE6DF]/50 hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-up cursor-default"
+              style={{ animationDelay: '150ms' }}
+            >
+              <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight">Banco de questões</h3>
+              <p className="text-slate-600 text-[15px] leading-relaxed">
+                Organize questões por disciplina, série, tema, habilidade, competência e dificuldade. Pesquise, duplique e reaproveite.
               </p>
             </div>
 
-            {/* Vitrine 2 */}
-            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-indigo-900/5 hover:-translate-y-1 transition-all group">
-              <div className="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6">
-                <BarChart3 className="w-7 h-7 group-hover:scale-110 transition-transform" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Métricas de Alunos</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Acompanhe gráficos visuais e entenda exatamente quais habilidades da BNCC precisam de mais atenção.
+            {/* Card 2 */}
+            <div 
+              className="bg-[#FCFAF6] p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#EAE6DF]/50 hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-up cursor-default"
+              style={{ animationDelay: '350ms' }}
+            >
+              <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight">Provas com QR Code</h3>
+              <p className="text-slate-600 text-[15px] leading-relaxed">
+                Monte provas a partir do banco, gere versões diferentes, folha de respostas e um código único por aluno para correção.
               </p>
             </div>
 
-            {/* Vitrine 3 */}
-            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-emerald-900/5 hover:-translate-y-1 transition-all group">
-              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                <Users className="w-7 h-7 group-hover:scale-110 transition-transform" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Gestão de Turmas</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Centralize históricos e resultados das turmas, simplificando as reuniões pedagógicas e conselhos de classe.
-              </p>
-            </div>
-            
-            {/* Vitrine 4 */}
-            <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 hover:shadow-xl hover:shadow-amber-900/5 hover:-translate-y-1 transition-all group">
-              <div className="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
-                <BookOpen className="w-7 h-7 group-hover:scale-110 transition-transform" />
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Banco Educacional</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Acesse um acervo de avaliações, referências e ferramentas para melhorar o engajamento na sala de aula.
+            {/* Card 3 */}
+            <div 
+              className="bg-[#FCFAF6] p-8 rounded-2xl border border-[#EAE6DF] hover:shadow-xl hover:shadow-[#EAE6DF]/50 hover:-translate-y-1 transition-all duration-300 opacity-0 animate-fade-up cursor-default"
+              style={{ animationDelay: '550ms' }}
+            >
+              <h3 className="text-lg font-bold text-slate-900 mb-3 tracking-tight">Correção e relatórios</h3>
+              <p className="text-slate-600 text-[15px] leading-relaxed">
+                Correção automática das objetivas, correção manual das discursivas e relatórios por turma, aluno, questão e habilidade.
               </p>
             </div>
           </div>
